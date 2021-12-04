@@ -6,8 +6,8 @@ use std::time::Instant;
 #[macro_use]
 mod library;
 mod day_1;
-/*mod day_2;
-mod day_3;
+mod day_2;
+/*mod day_3;
 mod day_4;
 mod day_5;
 mod day_6_2;
@@ -72,8 +72,12 @@ fn choice() -> [fn() -> i64; 2] {
 
     match choice {
         x if x == 1 => {
-            r1 = crate::day_1::part_1;
-            r2 = crate::day_1::part_2;
+            r1 = crate::day_1::part_1 as fn() -> i64;
+            r2 = crate::day_1::part_2 as fn() -> i64;
+        }
+        x if x == 2 => {
+            r1 = crate::day_2::part_1;
+            r2 = crate::day_2::part_2;
         }
         x => panic!("Day {} not found.", x),
     }

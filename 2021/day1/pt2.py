@@ -1,7 +1,7 @@
 def part_2():
     count, window = 0, []
 
-    with open('input', 'r') as file:
+    with open('../inputs/day1', 'r') as file:
         for line in file:
             line = int(line)
             if len(window) < 3:
