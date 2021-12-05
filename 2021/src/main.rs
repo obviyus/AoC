@@ -7,20 +7,8 @@ use std::time::Instant;
 mod library;
 mod day_1;
 mod day_2;
-/*mod day_3;
 mod day_4;
 mod day_5;
-mod day_6_2;
-mod day_7;
-mod day_8;
-mod day_9;
-mod day_10;
-mod day_11;
-mod day_12;
-mod day_13;
-mod day_14;
-mod day_15;
-mod day_16;*/
 
 #[allow(unused_must_use)]
 fn main() {
@@ -78,6 +66,14 @@ fn choice() -> [fn() -> i64; 2] {
         x if x == 2 => {
             r1 = crate::day_2::part_1;
             r2 = crate::day_2::part_2;
+        }
+        x if x == 4 => {
+            r1 = crate::day_4::part_1;
+            r2 = crate::day_4::part_1;
+        }
+        x if x == 5 => {
+            r1 = crate::day_5::part_1;
+            r2 = crate::day_5::part_2;
         }
         x => panic!("Day {} not found.", x),
     }

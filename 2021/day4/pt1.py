@@ -28,8 +28,9 @@ def is_solved(marked):
 
 
 def part_1():
-    with open('../inputs/day4', 'r') as file:
+    with open('/home/obviyus/Desktop/aoc/2021/inputs/day4', 'r') as file:
         bingo_numbers = list(map(int, file.__next__().strip().split(',')))
+        print(bingo_numbers)
 
         results, current_board, current_marked = [], [], [] # (solved_in, sum_of_unmarked, final_number)
         for line in file:
@@ -42,6 +43,12 @@ def part_1():
                     if check_if_present(current_board, val):
                         current_marked[check_if_present(current_board, val)[0]][check_if_present(current_board, val)[1]] = 1
                         if is_solved(current_marked):
+                            if time_to_solve == 22:
+                                for row in current_marked:
+                                    print(row)
+                                for row in current_board:
+                                    print(row)
+                                print(sum_of_unmarked(current_board, current_marked))
                             heappush(results, (time_to_solve, sum_of_unmarked(current_board, current_marked), val))
                             break
                     time_to_solve += 1
