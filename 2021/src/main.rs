@@ -1,21 +1,16 @@
+use paste::paste;
 use std::io::Write;
 use std::time::Instant;
 
-// Thanks JoseAlPaca for the Rust "framework" :D
-
 #[macro_use]
 mod library;
-mod day_1;
-mod day_2;
-mod day_4;
-mod day_5;
 
 #[allow(unused_must_use)]
 fn main() {
     let mut input = String::new();
     //let choice;
 
-    print!("Do you wish to run (o)nce or benchmark your solution with (x) iterations: ");
+    print!("Do you wish to run (o)nce or (b)enchmark your solution with x iterations: ");
     std::io::stdout().flush();
 
     scanline!(input);
@@ -23,13 +18,19 @@ fn main() {
     let choice = choice();
 
     if input.to_ascii_lowercase() == "o" {
-        for (i, f) in choice.iter().enumerate() {
-            println!("Answer #{}: {}", i + 1, f());
+        for (i, f) in choice.0.iter().enumerate() {
+            println!("Answer #{}: {}", i, f());
         }
     } else {
-        let i = input.parse::<i32>().unwrap();
+        let i;
+        if input.to_ascii_lowercase() == "b" {
+            i = 10000;
+        } else {
+            i = input.parse::<i32>().unwrap();
+        }
 
-        for (n, f) in choice.iter().enumerate() {
+        println!("\nBenchmarking \"{}\". Please wait.", choice.1);
+        for (n, f) in choice.0.iter().enumerate() {
             let now = Instant::now();
             for _ in 1..i {
                 f();
@@ -41,42 +42,9 @@ fn main() {
                 elapsed,
                 elapsed as f64 / 1000000000_f64
             );
-            println!("Answer #{}: {}", n + 1, f());
+            println!("Answer #{}: {}", n, f());
         }
     }
 }
 
-#[allow(unused_must_use)]
-fn choice() -> [fn() -> i64; 2] {
-    print!("Please enter day to run: ");
-    std::io::stdout().flush();
-
-    let mut input = String::new();
-    scanline!(input);
-    let choice = parse!(input.trim_end(), u8);
-
-    let r1;
-    let r2;
-
-    match choice {
-        x if x == 1 => {
-            r1 = crate::day_1::part_1 as fn() -> i64;
-            r2 = crate::day_1::part_2 as fn() -> i64;
-        }
-        x if x == 2 => {
-            r1 = crate::day_2::part_1;
-            r2 = crate::day_2::part_2;
-        }
-        x if x == 4 => {
-            r1 = crate::day_4::part_1;
-            r2 = crate::day_4::part_1;
-        }
-        x if x == 5 => {
-            r1 = crate::day_5::part_1;
-            r2 = crate::day_5::part_2;
-        }
-        x => panic!("Day {} not found.", x),
-    }
-
-    [r1, r2]
-}
+daychoice!({ _0, _1, _2, _3, _4, _5, _6 });

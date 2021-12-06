@@ -1,3 +1,5 @@
+pub const TITLE: &str = "Day 0: This is a dummy day.";
+
 use std::{collections::BinaryHeap, fs};
 
 fn is_present(board: &Vec<Vec<i64>>, number: i64) -> Option<(usize, usize)> {
@@ -80,4 +82,8 @@ pub fn part_1() -> i64 {
 
     let ans = results.pop().unwrap();
     ans.1 * ans.2
+}
+
+pub fn part_2() -> i64 {
+    0
 }

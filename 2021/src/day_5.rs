@@ -1,3 +1,5 @@
+pub const TITLE: &str = "Day 0: This is a dummy day.";
+
 use std::{collections::HashMap, fs};
 
 pub fn part_1() -> i64 {

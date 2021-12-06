@@ -1,3 +1,5 @@
+pub const TITLE: &str = "Day 1: This is a dummy day.";
+
 use std::fs;
 
 pub fn part_1() -> i64 {
