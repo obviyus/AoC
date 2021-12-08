@@ -16,111 +16,99 @@ pub fn part_1() -> i64 {
         .count() as i64
 }
 
-fn unique_chars(s1: &str, s2: &str) -> String {
+fn intersection(s1: &str, s2: &str) -> String {
     s1.chars()
-        .filter(|&each| !s2.contains(each))
+        .filter(|&each| s2.contains(each))
         .collect::<String>()
 }
 
 fn convert(input: Vec<&str>, output: Vec<&str>) -> i64 {
-    // Sort each string in the vector
-    let sorted_output: Vec<String> = output
-        .iter()
-        .map(|&each| {
-            let mut chars = each.chars().collect::<Vec<char>>();
-            chars.sort_by(|a, b| a.cmp(b));
-
-            String::from_iter(chars)
-        })
-        .collect();
-
     let mut input_sorted_by_length: Vec<&str> = input.clone();
-    input_sorted_by_length.sort_unstable_by(|a, b| a.len().cmp(&b.len()));
+    input_sorted_by_length.sort_unstable_by(|&a, &b| a.len().cmp(&b.len()));
 
-    let mut mappings = vec![""; 10];
-    mappings[1] = input_sorted_by_length[0];
-    mappings[4] = input_sorted_by_length[2];
-    mappings[7] = input_sorted_by_length[1];
-    mappings[8] = input_sorted_by_length[9];
+    let mut mappings: Vec<&str> = vec![""; 10];
+    mappings[1] = &input_sorted_by_length[0];
+    mappings[4] = &input_sorted_by_length[2];
+    mappings[7] = &input_sorted_by_length[1];
+    mappings[8] = &input_sorted_by_length[9];
 
-    let mut top_right = "".to_string();
-    let mut bottom_right = "".to_string();
-
-    for i in 6..9 {
-        if unique_chars(input_sorted_by_length[i], input_sorted_by_length[0].clone()).len() == 5 {
-            mappings[6] = input_sorted_by_length[i];
-            top_right = unique_chars(input_sorted_by_length[9], mappings[6].clone())
-                .chars()
-                .next()
-                .unwrap()
-                .to_string();
-            bottom_right = unique_chars(mappings[1], top_right.as_str())
-                .chars()
-                .next()
-                .unwrap()
-                .to_string();
-            break;
-        }
-    }
-
-    for i in 3..6 {
-        if input_sorted_by_length[i].contains(&top_right)
-            && input_sorted_by_length[i].contains(&bottom_right)
-        {
-            mappings[3] = input_sorted_by_length[i];
-        } else if input_sorted_by_length[i].contains(&top_right) {
-            mappings[2] = input_sorted_by_length[i];
+    for &length_five in &input_sorted_by_length[3..6] {
+        if mappings[7].chars().all(|char| length_five.contains(char)) {
+            mappings[3] = length_five;
         } else {
-            mappings[5] = input_sorted_by_length[i];
-        }
-    }
-
-    for i in 6..9 {
-        if input_sorted_by_length[i] == mappings[6] {
-            continue;
-        } else {
-            if unique_chars(input_sorted_by_length[i], mappings[4].clone()).len() == 2 {
-                mappings[9] = input_sorted_by_length[i];
+            if intersection(length_five, &mappings[4]).len() == 3 {
+                mappings[5] = length_five;
             } else {
-                mappings[0] = input_sorted_by_length[i];
+                mappings[2] = length_five;
             }
         }
     }
 
-    let mut actual_output = "".to_string();
-    let sorted_mappings: Vec<String> = mappings
-        .iter()
-        .map(|&each| {
-            let mut chars = each.chars().collect::<Vec<char>>();
-            chars.sort_by(|a, b| a.cmp(b));
+    for &length_six in &input_sorted_by_length[6..9] {
+        if mappings[4].chars().all(|char| length_six.contains(char)) {
+            mappings[9] = length_six;
+        } else {
+            if mappings[7].chars().all(|char| length_six.contains(char)) {
+                mappings[0] = length_six;
+            } else {
+                mappings[6] = length_six;
+            }
+        }
+    }
 
-            String::from_iter(chars)
-        })
-        .collect();
-
-    for digit in sorted_output {
-        actual_output.push_str(
-            sorted_mappings
+    let mut actual_output = Vec::with_capacity(4);
+    for digit in output {
+        actual_output.push(
+            mappings
                 .iter()
-                .position(|each| each.as_str() == digit)
+                .position(|&each| each == digit)
                 .unwrap()
-                .to_string()
-                .as_str(),
+                .to_string(),
         );
     }
 
-    actual_output.parse::<i64>().unwrap()
+    String::from_iter(actual_output).parse::<i64>().unwrap()
 }
 
 pub fn part_2() -> i64 {
-    fs::read_to_string("inputs/day8")
+    let result: i64 = fs::read_to_string("inputs/day8")
         .expect("Unable to read input")
         .lines()
         .map(|line| {
             let mut pair = line.split(" | ");
-            let input = pair.next().unwrap().split(" ").collect::<Vec<&str>>();
-            let output = pair.next().unwrap().split(" ").collect::<Vec<&str>>();
+            let input = pair
+                .next()
+                .unwrap()
+                .split(" ")
+                .map(|each| {
+                    let mut chars = each.chars().collect::<Vec<char>>();
+                    chars.sort_by(|a, b| a.cmp(b));
+                    String::from_iter(chars)
+                })
+                .collect::<Vec<String>>();
+            let input = input
+                .iter()
+                .map(|each| each.as_str())
+                .collect::<Vec<&str>>();
+
+            let output = pair
+                .next()
+                .unwrap()
+                .split(" ")
+                .map(|each| {
+                    let mut chars = each.chars().collect::<Vec<char>>();
+                    chars.sort_by(|a, b| a.cmp(b));
+                    String::from_iter(chars)
+                })
+                .collect::<Vec<String>>();
+            let output = output
+                .iter()
+                .map(|each| each.as_str())
+                .collect::<Vec<&str>>();
+
             convert(input, output)
         })
-        .sum()
+        .sum();
+
+    result
 }
