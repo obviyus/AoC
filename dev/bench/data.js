@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1639218206141,
+  "lastUpdate": 1639218440191,
   "repoUrl": "https://github.com/obviyus/aoc",
   "entries": {
     "Python Benchmark with pytest-benchmark": [
@@ -356,6 +356,184 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.00004210940186618389",
             "extra": "mean: 24.042295142857302 msec\nrounds: 42"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "biblioklept@icloud.com",
+            "name": "Ayaan Zaidi",
+            "username": "obviyus"
+          },
+          "committer": {
+            "email": "biblioklept@icloud.com",
+            "name": "Ayaan Zaidi",
+            "username": "obviyus"
+          },
+          "distinct": true,
+          "id": "01afea9f2f896abfa9d1c740c3840bc867528499",
+          "message": "[ci] use PAT over token",
+          "timestamp": "2021-12-11T15:56:31+05:30",
+          "tree_id": "0bc25ee30423fbbad10a521ee6dfd0f47b1a153b",
+          "url": "https://github.com/obviyus/aoc/commit/01afea9f2f896abfa9d1c740c3840bc867528499"
+        },
+        "date": 1639218439376,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "python/bench.py::test_day_1_part_1",
+            "value": 1531.377029642404,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00010448979355290254",
+            "extra": "mean: 653.0070522433739 usec\nrounds: 1493"
+          },
+          {
+            "name": "python/bench.py::test_day_1_part_2",
+            "value": 609.0318361651391,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0001762534159841844",
+            "extra": "mean: 1.6419502899826237 msec\nrounds: 569"
+          },
+          {
+            "name": "python/bench.py::test_day_2_part_1",
+            "value": 1703.1222556405185,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000962510040960685",
+            "extra": "mean: 587.1569094280406 usec\nrounds: 1888"
+          },
+          {
+            "name": "python/bench.py::test_day_2_part_2",
+            "value": 1618.5656505698046,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000085134749227632",
+            "extra": "mean: 617.8309787112788 usec\nrounds: 1785"
+          },
+          {
+            "name": "python/bench.py::test_day_3_part_1",
+            "value": 275.2162547225598,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00046202140987333803",
+            "extra": "mean: 3.6335063167256623 msec\nrounds: 281"
+          },
+          {
+            "name": "python/bench.py::test_day_3_part_2",
+            "value": 864.0638970620182,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00018054484430461725",
+            "extra": "mean: 1.157321817750042 msec\nrounds: 631"
+          },
+          {
+            "name": "python/bench.py::test_day_4_part_1",
+            "value": 45.80053623725649,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0010191256918613795",
+            "extra": "mean: 21.833805500000874 msec\nrounds: 46"
+          },
+          {
+            "name": "python/bench.py::test_day_4_part_2",
+            "value": 43.320604455823165,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0015608288244122806",
+            "extra": "mean: 23.083703760868918 msec\nrounds: 46"
+          },
+          {
+            "name": "python/bench.py::test_day_5_part_1",
+            "value": 8.952183033350488,
+            "unit": "iter/sec",
+            "range": "stddev: 0.006367753492294393",
+            "extra": "mean: 111.7045972222191 msec\nrounds: 9"
+          },
+          {
+            "name": "python/bench.py::test_day_5_part_2",
+            "value": 6.769451101325249,
+            "unit": "iter/sec",
+            "range": "stddev: 0.007199180222330112",
+            "extra": "mean: 147.72246449999926 msec\nrounds: 8"
+          },
+          {
+            "name": "python/bench.py::test_day_6_part_1",
+            "value": 1994.6654520215318,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00008343245865486354",
+            "extra": "mean: 501.3372036832196 usec\nrounds: 1792"
+          },
+          {
+            "name": "python/bench.py::test_day_6_part_2",
+            "value": 686.9585981597239,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0001735715213131249",
+            "extra": "mean: 1.455691802502909 msec\nrounds: 719"
+          },
+          {
+            "name": "python/bench.py::test_day_7_part_1",
+            "value": 2098.753107844538,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00006765992501941565",
+            "extra": "mean: 476.47338615594487 usec\nrounds: 1748"
+          },
+          {
+            "name": "python/bench.py::test_day_7_part_2",
+            "value": 625.0765989400915,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00016810516844450955",
+            "extra": "mean: 1.5998039307432814 msec\nrounds: 592"
+          },
+          {
+            "name": "python/bench.py::test_day_8_part_1",
+            "value": 2391.448054903599,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00006869603614525546",
+            "extra": "mean: 418.1566887683499 usec\nrounds: 2217"
+          },
+          {
+            "name": "python/bench.py::test_day_8_part_2",
+            "value": 230.53992358299624,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0002913126296700476",
+            "extra": "mean: 4.337643495574388 msec\nrounds: 226"
+          },
+          {
+            "name": "python/bench.py::test_day_9_part_1",
+            "value": 88.90223198328638,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0007007281978174514",
+            "extra": "mean: 11.24831151807302 msec\nrounds: 83"
+          },
+          {
+            "name": "python/bench.py::test_day_9_part_2",
+            "value": 32.93867831887723,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0014482083745621015",
+            "extra": "mean: 30.359445218750558 msec\nrounds: 32"
+          },
+          {
+            "name": "python/bench.py::test_day_10_part_1",
+            "value": 335.56854760472845,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0002903764269149186",
+            "extra": "mean: 2.9800170699487487 msec\nrounds: 386"
+          },
+          {
+            "name": "python/bench.py::test_day_10_part_2",
+            "value": 406.812434694869,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00036083227253898693",
+            "extra": "mean: 2.458135284753656 msec\nrounds: 446"
+          },
+          {
+            "name": "python/bench.py::test_day_11_part_1",
+            "value": 99.56614343399683,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0008882559172591779",
+            "extra": "mean: 10.043574708333539 msec\nrounds: 96"
+          },
+          {
+            "name": "python/bench.py::test_day_11_part_2",
+            "value": 37.70574875541897,
+            "unit": "iter/sec",
+            "range": "stddev: 0.001554010518378011",
+            "extra": "mean: 26.521154810810714 msec\nrounds: 37"
           }
         ]
       }
