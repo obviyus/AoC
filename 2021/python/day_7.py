@@ -1,9 +1,15 @@
+import statistics
+import math
+
+
 def part_1():
     with open("inputs/day7", "r") as file:
-        crab_positions = sorted(list(map(int, file.read().split(","))))
+        crab_positions = list(map(int, file.read().split(",")))
+        median = statistics.median(crab_positions)
+
         return sum(
             map(
-                lambda x: abs(x - crab_positions[len(crab_positions) // 2]),
+                lambda x: abs(x - median),
                 crab_positions,
             )
         )
@@ -12,15 +18,17 @@ def part_1():
 def part_2():
     with open("inputs/day7", "r") as file:
         crab_positions = list(map(int, file.read().split(",")))
-        result = float("inf")
+        mean = statistics.mean(crab_positions)
 
-        ap_sum = lambda x: x * (x + 1) // 2
-        for num in crab_positions:
-            result = min(
-                result, sum(map(lambda x: ap_sum(abs(x - num)), crab_positions))
-            )
-
-        return result
+        cost = lambda x: x * (x + 1) / 2
+        return min(
+            sum(
+                map(cost, map(abs, map(lambda x: x - math.floor(mean), crab_positions)))
+            ),
+            sum(
+                map(cost, map(abs, map(lambda x: x - math.ceil(mean), crab_positions)))
+            ),
+        )
 
 
 print(part_1())
