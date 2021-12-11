@@ -20,9 +20,9 @@ jobs:
 
       - name: Run benchmark
         run: |
-          cd 2021/python
+          cd 2021
           pip install pytest pytest-benchmark
-          pytest bench.py --benchmark-json output.json
+          pytest python/bench.py --benchmark-json output.json
 
       - name: Download previous benchmark data
         uses: actions/cache@v1
