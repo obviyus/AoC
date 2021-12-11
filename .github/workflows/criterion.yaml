@@ -25,7 +25,7 @@ jobs:
         with:
           name: Rust
           tool: "cargo"
-          output-file-path: examples/criterion-rs/output.txt
+          output-file-path: 2021/output.txt
           github-token: ${{ secrets.AOC_PAT }}
           auto-push: true
           alert-threshold: "200%"
