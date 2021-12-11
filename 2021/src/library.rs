@@ -36,9 +36,18 @@ macro_rules! daychoice {
                 let mut i = 0;
                 let mut titles = Vec::new();
             $(
-                println!("{}: {}", i, crate::[<day $day>]::TITLE);
-                titles.push(crate::[<day $day>]::TITLE);
-                i += 1;
+                match i > 9 {
+                    true => {
+                        println!("{}: {}", i, crate::[<day $day>]::TITLE);
+                        titles.push(crate::[<day $day>]::TITLE);
+                        i += 1;
+                    },
+                    false => {
+                        println!("{} : {}", i, crate::[<day $day>]::TITLE);
+                        titles.push(crate::[<day $day>]::TITLE);
+                        i += 1;
+                    },
+                }
             )+
 
                 print!("Please enter day to run: ");

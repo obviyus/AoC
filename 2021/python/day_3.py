@@ -1,3 +1,26 @@
+from collections import Counter
+
+
+def part_1():
+    eps, gam = "", ""
+    with open("../inputs/day3", "r") as file:
+        results = []
+
+        for line in file:
+            if not results:
+                results = [Counter() for _ in range(len(line))]
+            for i, bit in enumerate(line.strip()):
+                results[i][bit] += 1
+
+        for counter in results:
+            if counter:
+                r = counter.most_common()
+                gam += r[0][0]
+                eps += r[-1][0]
+    print(gam, eps)
+    return int(gam, 2) * int(eps, 2)
+
+
 def count_at_index(cache, index):
     result = {"0": 0, "1": 0}
     for num in cache:
@@ -18,7 +41,11 @@ def least_common_at_index(cache, index):
 def filter_until_one(cache, common):
     index = 0
     while len(cache) > 1:
-        value = most_common_at_index(cache, index) if common else least_common_at_index(cache, index)
+        value = (
+            most_common_at_index(cache, index)
+            if common
+            else least_common_at_index(cache, index)
+        )
         cache = list(
             filter(
                 lambda x: x[index] == value,
@@ -30,7 +57,6 @@ def filter_until_one(cache, common):
 
 
 def part_2():
-    eps, gam = "", ""
     with open("../inputs/day3", "r") as file:
         cache = []
 
@@ -42,4 +68,5 @@ def part_2():
     )
 
 
+print(part_1())
 print(part_2())

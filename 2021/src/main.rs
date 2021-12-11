@@ -8,7 +8,7 @@ mod library;
 #[allow(unused_must_use)]
 fn main() {
     let mut input = String::new();
-    //let choice;
+    // Thank you JoseAlPaca for the "framework" :)
 
     print!("Do you wish to run (o)nce or (b)enchmark your solution with x iterations: ");
     std::io::stdout().flush();
@@ -19,7 +19,7 @@ fn main() {
 
     if input.to_ascii_lowercase() == "o" {
         for (i, f) in choice.0.iter().enumerate() {
-            println!("Answer #{}: {}", i, f());
+            println!("Part #{}: {}", i + 1, f());
         }
     } else {
         let i;
@@ -42,9 +42,9 @@ fn main() {
                 elapsed,
                 elapsed as f64 / 1000000000_f64
             );
-            println!("Answer #{}: {}", n, f());
+            println!("Part #{}: {}", n + 1, f());
         }
     }
 }
 
-daychoice!({ _0, _1, _2, _3, _4, _5, _6, _7, _8, _9, _10});
+daychoice!({ _0, _1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11});
