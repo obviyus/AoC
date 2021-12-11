@@ -18,7 +18,7 @@ jobs:
       - run: rustup toolchain update nightly && rustup default nightly
 
       - name: Run benchmark
-        run: cd 2021 && cargo +nightly bench -- --output-format bencher | tee output.txt
+        run: cd 2021 && cargo bench --bench bench -- --output-format bencher | tee output.txt
 
       - name: Store benchmark result
         uses: benchmark-action/github-action-benchmark@v1

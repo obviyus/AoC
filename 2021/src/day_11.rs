@@ -123,3 +123,13 @@ pub fn part_2() -> i64 {
         steps += 1;
     }
 }
+
+#[test]
+fn test_part_1() {
+    assert_eq!(part_1(), 1721);
+}
+
+#[test]
+fn test_part_2() {
+    assert_eq!(part_2(), 298);
+}

@@ -1,6 +1,7 @@
 [package]
 name = "aoc_2021"
 version = "0.1.0"
+authors = ["obviyus <https://obviy.us>"]
 edition = "2021"
 
 [dependencies]

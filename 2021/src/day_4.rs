@@ -87,3 +87,13 @@ pub fn part_1() -> i64 {
 pub fn part_2() -> i64 {
     0
 }
+
+#[test]
+fn test_part_1() {
+    assert_eq!(part_1(), 6592);
+}
+
+#[test]
+fn test_part_2() {
+    assert_eq!(part_2(), 31755);
+}

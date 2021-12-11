@@ -83,3 +83,13 @@ pub fn part_2() -> i64 {
     scores.sort();
     scores[scores.len() / 2]
 }
+
+#[test]
+fn test_part_1() {
+    assert_eq!(part_1(), 464991);
+}
+
+#[test]
+fn test_part_2() {
+    assert_eq!(part_2(), 3662008566);
+}

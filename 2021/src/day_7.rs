@@ -40,3 +40,13 @@ pub fn part_2() -> i64 {
         .min()
         .unwrap()
 }
+
+#[test]
+fn test_part_1() {
+    assert_eq!(part_1(), 335271);
+}
+
+#[test]
+fn test_part_2() {
+    assert_eq!(part_2(), 95851339);
+}

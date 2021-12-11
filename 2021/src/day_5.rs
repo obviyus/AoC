@@ -80,3 +80,13 @@ pub fn part_2() -> i64 {
         .filter_map(|(_, value)| if *value >= 2 { Some(*value) } else { None })
         .count() as i64
 }
+
+#[test]
+fn test_part_1() {
+    assert_eq!(part_1(), 5092);
+}
+
+#[test]
+fn test_part_2() {
+    assert_eq!(part_2(), 20484);
+}
