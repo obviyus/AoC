@@ -3,7 +3,7 @@ from collections import Counter
 
 def part_1():
     grid_counter = Counter()
-    with open("2021/inputs/day5", "r") as file:
+    with open("inputs/day5", "r") as file:
         for line in file:
             start, end = line.strip().split("->")
             x1, y1 = map(int, start.split(","))
@@ -19,7 +19,7 @@ def part_1():
 
 def part_2():
     grid_counter = Counter()
-    with open("2021/inputs/day5", "r") as file:
+    with open("inputs/day5", "r") as file:
         for line in file:
             start, end = line.strip().split("->")
             x1, y1 = map(int, start.split(","))

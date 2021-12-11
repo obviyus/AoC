@@ -15,7 +15,7 @@ def neighbors(grid, x, y):
 
 def part_1():
     grid = []
-    with open("2021/inputs/day11", "r") as file:
+    with open("inputs/day11", "r") as file:
         for line in file.read().splitlines():
             grid.append(list(map(int, list(line))))
 
@@ -47,7 +47,7 @@ def part_1():
 
 def part_2():
     grid = []
-    with open("2021/inputs/day11", "r") as file:
+    with open("inputs/day11", "r") as file:
         for line in file.read().splitlines():
             grid.append(list(map(int, list(line))))
 

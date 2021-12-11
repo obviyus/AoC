@@ -1,5 +1,5 @@
 def part_1():
-    with open("2021/inputs/day7", "r") as file:
+    with open("inputs/day7", "r") as file:
         crab_positions = sorted(list(map(int, file.read().split(","))))
         return sum(
             map(
@@ -10,7 +10,7 @@ def part_1():
 
 
 def part_2():
-    with open("2021/inputs/day7", "r") as file:
+    with open("inputs/day7", "r") as file:
         crab_positions = list(map(int, file.read().split(",")))
         result = float("inf")
 

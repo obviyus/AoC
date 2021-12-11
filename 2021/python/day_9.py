@@ -10,7 +10,7 @@ def is_low_point(grid, x, y):
 
 def part_1():
     grid = []
-    with open("2021/inputs/day9", "r") as file:
+    with open("inputs/day9", "r") as file:
         for line in file.read().splitlines():
             grid.append(list(map(int, list(line))))
     return sum(
@@ -30,7 +30,7 @@ def neighbors(grid, x, y):
 
 def part_2():
     grid = []
-    with open("2021/inputs/day9", "r") as file:
+    with open("inputs/day9", "r") as file:
         for line in file.read().splitlines():
             grid.append(list(map(int, list(line))))
 

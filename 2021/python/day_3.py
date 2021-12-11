@@ -3,7 +3,7 @@ from collections import Counter
 
 def part_1():
     eps, gam = "", ""
-    with open("../inputs/day3", "r") as file:
+    with open("inputs/day3", "r") as file:
         results = []
 
         for line in file:
@@ -57,7 +57,7 @@ def filter_until_one(cache, common):
 
 
 def part_2():
-    with open("../inputs/day3", "r") as file:
+    with open("inputs/day3", "r") as file:
         cache = []
 
         for line in file:

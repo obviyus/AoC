@@ -4,7 +4,7 @@ def part_1():
     illegal_points = {")": 3, "]": 57, "}": 1197, ">": 25137}
 
     stack, error_score = [], 0
-    with open("2021/inputs/day10", "r") as file:
+    with open("inputs/day10", "r") as file:
         for line in file.read().splitlines():
             for char in line:
                 if char in opening:
@@ -24,7 +24,7 @@ def part_2():
     auto_complete_points = {")": 1, "]": 2, "}": 3, ">": 4}
 
     auto_complete_scores = []
-    with open("2021/inputs/day10", "r") as file:
+    with open("inputs/day10", "r") as file:
         for line in file.read().splitlines():
             corrupted, stack = False, []
             for char in line:

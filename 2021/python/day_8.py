@@ -1,6 +1,6 @@
 def part_1():
     counter = 0
-    with open("2021/inputs/day8", "r") as file:
+    with open("inputs/day8", "r") as file:
         for line in file.read().splitlines():
             counter += len(
                 list(
@@ -63,7 +63,7 @@ def convert(input, output) -> int:
 
 def part_2():
     total = 0
-    with open("2021/inputs/day8", "r") as file:
+    with open("inputs/day8", "r") as file:
         for line in file.read().splitlines():
             pair = line.split(" | ")
             total += convert(pair[0].split(" "), pair[1].split(" "))
