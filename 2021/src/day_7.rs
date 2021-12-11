@@ -11,11 +11,14 @@ pub fn part_1() -> i64 {
         .map(|n| n.parse::<i64>().unwrap())
         .collect::<Vec<i64>>();
 
-    crab_positions.sort_unstable();
-    crab_positions
-        .iter()
-        .map(|n| (n - crab_positions[crab_positions.len() / 2]).abs())
-        .sum()
+    let middle = crab_positions.len() / 2;
+    let median = *crab_positions.select_nth_unstable(middle).1;
+
+    crab_positions.iter().map(|n| (n - median).abs()).sum()
+}
+
+fn cost(n: i64) -> i64 {
+    n * (n + 1) / 2
 }
 
 pub fn part_2() -> i64 {
@@ -27,14 +30,12 @@ pub fn part_2() -> i64 {
         .map(|n| n.parse::<i64>().unwrap())
         .collect::<Vec<i64>>();
 
-    crab_positions
-        .iter()
-        .map(|x| {
+    (crab_positions.iter().sum::<i64>() / crab_positions.len() as i64..)
+        .take(2)
+        .map(|t| {
             crab_positions
-                .clone()
                 .iter()
-                .map(|y| (x - y).abs())
-                .map(|n| n * (n + 1) / 2)
+                .map(|n| cost((n - t).abs()))
                 .sum::<i64>()
         })
         .min()
