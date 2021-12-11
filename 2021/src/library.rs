@@ -1,4 +1,3 @@
-#[allow(unused_macros)]
 #[macro_export]
 macro_rules! scanline {
     ($x:expr) => {
@@ -6,7 +5,6 @@ macro_rules! scanline {
     };
 }
 
-#[allow(unused_macros)]
 #[macro_export]
 macro_rules! content {
     ($path:expr) => {
@@ -14,7 +12,6 @@ macro_rules! content {
     };
 }
 
-#[allow(unused_macros)]
 #[macro_export]
 macro_rules! parse {
     ($x:expr, $t:ident) => {
@@ -22,7 +19,6 @@ macro_rules! parse {
     };
 }
 
-#[allow(unused_macros)]
 #[macro_export]
 macro_rules! daychoice {
     ({ $($day:ident),+ }) => {

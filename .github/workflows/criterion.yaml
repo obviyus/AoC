@@ -1,35 +1,31 @@
-name: Pytest
+name: Criterion.rs
 on:
   push:
     branches:
       - master
 
 permissions:
-  deployments: write
   contents: write
+  deployments: write
 
 jobs:
   benchmark:
-    name: Run pytest-benchmark
+    name: Run Criterion.rs benchmark
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-        with:
-          python-version: 3.9
+
+      - run: rustup toolchain update nightly && rustup default nightly
 
       - name: Run benchmark
-        run: |
-          cd 2021
-          pip install pytest pytest-benchmark
-          pytest python/bench.py --benchmark-json output.json
+        run: cd 2021 && cargo +nightly bench -- --output-format bencher | tee output.txt
 
       - name: Store benchmark result
         uses: benchmark-action/github-action-benchmark@v1
         with:
-          name: Python
-          tool: "pytest"
-          output-file-path: 2021/output.json
+          name: Rust
+          tool: "cargo"
+          output-file-path: examples/criterion-rs/output.txt
           github-token: ${{ secrets.AOC_PAT }}
           auto-push: true
           alert-threshold: "200%"
