@@ -30,7 +30,7 @@ jobs:
           name: Python Benchmark with pytest-benchmark
           tool: "pytest"
           output-file-path: 2021/output.json
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.AOC_PAT }}
           auto-push: true
           alert-threshold: "200%"
           comment-on-alert: true
