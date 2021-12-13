@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1639381903720,
+  "lastUpdate": 1639382329894,
   "repoUrl": "https://github.com/obviyus/aoc",
   "entries": {
     "Python": [
@@ -2291,6 +2291,162 @@ window.BENCHMARK_DATA = {
             "name": "day_11_part_2",
             "value": 4565387,
             "range": "± 158879",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "biblioklept@icloud.com",
+            "name": "Ayaan Zaidi",
+            "username": "obviyus"
+          },
+          "committer": {
+            "email": "biblioklept@icloud.com",
+            "name": "Ayaan Zaidi",
+            "username": "obviyus"
+          },
+          "distinct": true,
+          "id": "a1e4f5ad61a5f3b84debc4ca644d1a5da188d20d",
+          "message": "[day13] python solutions",
+          "timestamp": "2021-12-13T13:20:46+05:30",
+          "tree_id": "1e3f472b82de0efa22f9a13d9e0de6539b1d58c5",
+          "url": "https://github.com/obviyus/aoc/commit/a1e4f5ad61a5f3b84debc4ca644d1a5da188d20d"
+        },
+        "date": 1639382329463,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "day_1_part_1",
+            "value": 56978,
+            "range": "± 4486",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_1_part_2",
+            "value": 58148,
+            "range": "± 4255",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_2_part_1",
+            "value": 60504,
+            "range": "± 5275",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_2_part_2",
+            "value": 61200,
+            "range": "± 4163",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_3_part_1",
+            "value": 1,
+            "range": "± 0",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_3_part_2",
+            "value": 1,
+            "range": "± 0",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_4_part_1",
+            "value": 518633,
+            "range": "± 44174",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_4_part_2",
+            "value": 1,
+            "range": "± 0",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_5_part_1",
+            "value": 200454070,
+            "range": "± 10361296",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_5_part_2",
+            "value": 19278901,
+            "range": "± 1405098",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_6_part_1",
+            "value": 19767,
+            "range": "± 1148",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_6_part_2",
+            "value": 33814,
+            "range": "± 1770",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_7_part_1",
+            "value": 40290,
+            "range": "± 4625",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_7_part_2",
+            "value": 38698,
+            "range": "± 3300",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_8_part_1",
+            "value": 77431,
+            "range": "± 5470",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_8_part_2",
+            "value": 1115370,
+            "range": "± 130222",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_9_part_1",
+            "value": 419198,
+            "range": "± 41353",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_9_part_2",
+            "value": 2325650,
+            "range": "± 142582",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_10_part_1",
+            "value": 140193,
+            "range": "± 9939",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_10_part_2",
+            "value": 182453,
+            "range": "± 10107",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_11_part_1",
+            "value": 1689241,
+            "range": "± 91104",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_11_part_2",
+            "value": 4512409,
+            "range": "± 305785",
             "unit": "ns/iter"
           }
         ]
