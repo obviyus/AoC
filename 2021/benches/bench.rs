@@ -1,6 +1,8 @@
 use criterion::{black_box, criterion_group, criterion_main, Criterion};
 
-use aoc_2021::{day_1, day_10, day_11, day_2, day_3, day_4, day_5, day_6, day_7, day_8, day_9};
+use aoc_2021::{
+    day_1, day_10, day_11, day_13, day_2, day_3, day_4, day_5, day_6, day_7, day_8, day_9,
+};
 
 fn bench_day_1_part_1(c: &mut Criterion) {
     c.bench_function("day_1_part_1", |b| {
@@ -178,6 +180,22 @@ fn bench_day_11_part_2(c: &mut Criterion) {
     });
 }
 
+fn bench_day_13_part_1(c: &mut Criterion) {
+    c.bench_function("day_13_part_1", |b| {
+        b.iter(|| {
+            black_box(day_13::part_1());
+        })
+    });
+}
+
+fn bench_day_13_part_2(c: &mut Criterion) {
+    c.bench_function("day_13_part_2", |b| {
+        b.iter(|| {
+            black_box(day_13::part_2());
+        })
+    });
+}
+
 criterion_group!(
     benches,
     bench_day_1_part_1,
@@ -201,6 +219,8 @@ criterion_group!(
     bench_day_10_part_1,
     bench_day_10_part_2,
     bench_day_11_part_1,
-    bench_day_11_part_2
+    bench_day_11_part_2,
+    bench_day_13_part_1,
+    bench_day_13_part_2,
 );
 criterion_main!(benches);

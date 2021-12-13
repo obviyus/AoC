@@ -10,15 +10,9 @@ def part_1():
 
     axis, position = fold_instructions[0]
     if axis == "x":
-        dots = set(
-            (position - abs(x - position), y) if x > position else (x, y)
-            for (x, y) in dots
-        )
+        dots = set((2 * position - x, y) if x > position else (x, y) for (x, y) in dots)
     elif axis == "y":
-        dots = set(
-            (x, position - abs(y - position)) if y > position else (x, y)
-            for (x, y) in dots
-        )
+        dots = set((x, 2 * position - y) if y > position else (x, y) for (x, y) in dots)
 
     return len(dots)
 
