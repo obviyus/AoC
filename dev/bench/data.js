@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1639542407950,
+  "lastUpdate": 1639542879526,
   "repoUrl": "https://github.com/obviyus/aoc",
   "entries": {
     "Python": [
@@ -3829,6 +3829,198 @@ window.BENCHMARK_DATA = {
             "name": "day_13_part_2",
             "value": 346553,
             "range": "± 9898",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "biblioklept@icloud.com",
+            "name": "Ayaan Zaidi",
+            "username": "obviyus"
+          },
+          "committer": {
+            "email": "biblioklept@icloud.com",
+            "name": "Ayaan Zaidi",
+            "username": "obviyus"
+          },
+          "distinct": true,
+          "id": "c4cb3fc4117732952b97957959e6420e33f2e765",
+          "message": "[day14] solve in Rust",
+          "timestamp": "2021-12-15T09:55:46+05:30",
+          "tree_id": "1466a4d1781fd9c4a53af9cffb356869c824dfd6",
+          "url": "https://github.com/obviyus/aoc/commit/c4cb3fc4117732952b97957959e6420e33f2e765"
+        },
+        "date": 1639542879105,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "day_1_part_1",
+            "value": 57488,
+            "range": "± 3333",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_1_part_2",
+            "value": 62134,
+            "range": "± 1665",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_2_part_1",
+            "value": 57866,
+            "range": "± 4694",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_2_part_2",
+            "value": 57609,
+            "range": "± 4467",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_3_part_1",
+            "value": 1,
+            "range": "± 0",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_3_part_2",
+            "value": 1,
+            "range": "± 0",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_4_part_1",
+            "value": 484475,
+            "range": "± 31559",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_4_part_2",
+            "value": 1,
+            "range": "± 0",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_5_part_1",
+            "value": 153289948,
+            "range": "± 6016698",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_5_part_2",
+            "value": 15355383,
+            "range": "± 940606",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_6_part_1",
+            "value": 16470,
+            "range": "± 1224",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_6_part_2",
+            "value": 27575,
+            "range": "± 1665",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_7_part_1",
+            "value": 36552,
+            "range": "± 2330",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_7_part_2",
+            "value": 36365,
+            "range": "± 2405",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_8_part_1",
+            "value": 81168,
+            "range": "± 5466",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_8_part_2",
+            "value": 954351,
+            "range": "± 64783",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_9_part_1",
+            "value": 413083,
+            "range": "± 24362",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_9_part_2",
+            "value": 2132616,
+            "range": "± 136595",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_10_part_1",
+            "value": 128603,
+            "range": "± 10102",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_10_part_2",
+            "value": 150403,
+            "range": "± 9885",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_11_part_1",
+            "value": 1507491,
+            "range": "± 88252",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_11_part_2",
+            "value": 3768261,
+            "range": "± 268355",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_12_part_1",
+            "value": 4820464,
+            "range": "± 179662",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_12_part_2",
+            "value": 116110028,
+            "range": "± 8901517",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_13_part_1",
+            "value": 224263,
+            "range": "± 20414",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_13_part_2",
+            "value": 417406,
+            "range": "± 26192",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_14_part_1",
+            "value": 354984,
+            "range": "± 23359",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "day_14_part_2",
+            "value": 1564580,
+            "range": "± 45838",
             "unit": "ns/iter"
           }
         ]
