@@ -47,7 +47,7 @@ pub fn part_1() -> i64 {
             .lines()
             .map(|line| {
                 line.chars()
-                    .map(|digit| digit.to_string().parse::<i64>().unwrap())
+                    .map(|digit| digit.to_digit(10).unwrap() as i64)
                     .collect::<Vec<i64>>()
             })
             .collect::<Vec<Vec<i64>>>(),
@@ -60,7 +60,7 @@ pub fn part_2() -> i64 {
         .lines()
         .map(|line| {
             line.chars()
-                .map(|digit| digit.to_string().parse::<i64>().unwrap())
+                .map(|digit| digit.to_digit(10).unwrap() as i64)
                 .collect::<Vec<i64>>()
         })
         .collect::<Vec<Vec<i64>>>();
