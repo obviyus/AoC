@@ -19,12 +19,48 @@ macro_rules! parse {
     };
 }
 
+#[allow(unused_macros)]
+#[macro_export]
+macro_rules! create_benches {
+    ({ $($day:ident),+ }) => {
+        paste! {
+            $(
+                use aoc_2021::[<day $day>];
+
+                fn [<bench_day $day _pt1>](c: &mut Criterion) {
+                    c.bench_function(&format!("{} pt1", [<day $day>]::TITLE), |b| {
+                        b.iter(|| {
+                            black_box([<day $day>]::[<day $day _part_1>]());
+                        })
+                    });
+                }
+                fn [<bench_day $day _pt2>](c: &mut Criterion) {
+                    c.bench_function(&format!("{} pt2", [<day $day>]::TITLE), |b| {
+                        b.iter(|| {
+                            black_box([<day $day>]::[<day $day _part_2>]());
+                        })
+                    });
+                }
+            )+
+
+            criterion_group!(
+                benches,
+                $(
+                    [<bench_day $day _part_1>],
+                    [<bench_day $day _part_2>],
+                )+
+            );
+            criterion_main!(benches);
+        }
+    };
+}
+
 #[macro_export]
 macro_rules! daychoice {
     ({ $($day:ident),+ }) => {
         paste! {
             $(
-                mod [<day $day>];
+                pub mod [<day $day>];
             )+
 
             #[allow(unused_assignments)]

@@ -1,4 +1,4 @@
-pub const TITLE: &str = "Day 0: This is a dummy day.";
+pub const TITLE: &str = "--- Day 5: Hydrothermal Venture ---";
 
 use std::{collections::HashMap, fs};
 

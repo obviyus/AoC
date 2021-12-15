@@ -1,4 +1,4 @@
-pub const TITLE: &str = "Day 0: This is a dummy day.";
+pub const TITLE: &str = "--- Day 4: Giant Squid ---";
 
 use std::{collections::BinaryHeap, fs};
 

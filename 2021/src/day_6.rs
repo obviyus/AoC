@@ -1,6 +1,6 @@
 use std::fs;
 
-pub const TITLE: &str = "Day 6: This is a dummy day.";
+pub const TITLE: &str = "--- Day 6: Lanternfish ---";
 
 fn runner(fishes: Vec<i64>, days: i64) -> i64 {
     let mut counter = fishes.clone();
