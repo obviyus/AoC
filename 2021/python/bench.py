@@ -1,4 +1,4 @@
-import day_1, day_2, day_3, day_4, day_5, day_6, day_7, day_8, day_9, day_10, day_11, day_12, day_13, day_14, day_15
+import day_1, day_2, day_3, day_4, day_5, day_6, day_7, day_8, day_9, day_10, day_11, day_12, day_13, day_14, day_15, day_16
 
 
 def test_day_1_part_1(benchmark):
@@ -178,4 +178,16 @@ def test_day_15_part_1(benchmark):
 def test_day_15_part_2(benchmark):
     benchmark(
         day_15.part_2,
+    )
+
+
+def test_day_16_part_1(benchmark):
+    benchmark(
+        day_16.part_1,
+    )
+
+
+def test_day_16_part_2(benchmark):
+    benchmark(
+        day_16.part_2,
     )

@@ -1,4 +1,4 @@
-import day_1, day_2, day_3, day_4, day_5, day_6, day_7, day_8, day_9, day_10, day_11, day_12, day_13, day_14, day_15
+import day_1, day_2, day_3, day_4, day_5, day_6, day_7, day_8, day_9, day_10, day_11, day_12, day_13, day_14, day_15, day_16
 
 
 def test_day_1():
@@ -74,3 +74,8 @@ def test_day_14():
 def test_day_15():
     assert day_15.part_1() == 458
     assert day_15.part_2() == 2800
+
+
+def test_day_16():
+    assert day_16.part_1() == 925
+    assert day_16.part_2() == 342997120375
