@@ -1,50 +1,15 @@
-use paste::paste;
-use std::io::Write;
-use std::time::Instant;
-
-#[macro_use]
-mod library;
-
-#[allow(unused_must_use)]
-pub fn main() {
-    let mut input = String::new();
-    // Thank you JoseAlPaca for the "framework" :)
-
-    print!("Do you wish to run (o)nce or (b)enchmark your solution with x iterations: ");
-    std::io::stdout().flush();
-
-    scanline!(input);
-    let input = input.trim_end();
-    let choice = choice();
-
-    if input.to_ascii_lowercase() == "o" {
-        for (i, f) in choice.0.iter().enumerate() {
-            println!("Part #{}: {}", i + 1, f());
-        }
-    } else {
-        let i;
-        if input.to_ascii_lowercase() == "b" {
-            i = 10000;
-        } else {
-            i = input.parse::<i32>().unwrap();
-        }
-
-        println!("\nBenchmarking \"{}\". Please wait.", choice.1);
-        for (n, f) in choice.0.iter().enumerate() {
-            let now = Instant::now();
-            for _ in 1..i {
-                f();
-            }
-            let elapsed = now.elapsed().as_nanos();
-            println!(
-                "\nExercise ran {} times in {}ns ({:.03}s).",
-                i,
-                elapsed,
-                elapsed as f64 / 1000000000_f64
-            );
-            println!("Part #{}: {}", n + 1, f());
-        }
-    }
-}
-
-daychoice!({ _0, _1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11, _12, _13, _14, _15});
+pub mod day_1;
+pub mod day_10;
+pub mod day_11;
+pub mod day_12;
+pub mod day_13;
+pub mod day_14;
+pub mod day_15;
+pub mod day_2;
+pub mod day_3;
+pub mod day_4;
+pub mod day_5;
+pub mod day_6;
+pub mod day_7;
+pub mod day_8;
+pub mod day_9;
