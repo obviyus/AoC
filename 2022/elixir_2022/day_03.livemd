@@ -1,0 +1,74 @@
+# Day 3
+
+```elixir
+Mix.install([
+  {:kino, "~> 0.7.0"}
+])
+```
+
+## Input
+
+<!-- livebook:{"reevaluate_automatically":true} -->
+
+```elixir
+input = Kino.Input.textarea("Please paste your input file:")
+```
+
+## Helpers
+
+```elixir
+defmodule Day03 do
+  defp upcase?(char) do
+    char == String.upcase(char)
+  end
+
+  def char_to_priority(char) do
+    <<code::utf8>> = char
+
+    cond do
+      upcase?(char) -> code - 38
+      true -> code - 96
+    end
+  end
+
+  def common_chars(words) do
+    words
+    |> Enum.map(&String.graphemes/1)
+    |> Enum.map(&MapSet.new/1)
+    |> Enum.reduce(&MapSet.intersection(&1, &2))
+    # Guaranteed to always have one common value at the end
+    |> Enum.at(0)
+  end
+end
+```
+
+## Part 1
+
+```elixir
+input
+|> Kino.Input.read()
+|> String.splitter("\n")
+|> Enum.map(fn line ->
+  line
+  |> String.split_at(div(String.length(line), 2))
+  |> Tuple.to_list()
+  |> Day03.common_chars()
+  |> Day03.char_to_priority()
+end)
+|> Enum.sum()
+```
+
+## Part 2
+
+```elixir
+input
+|> Kino.Input.read()
+|> String.splitter("\n")
+|> Enum.chunk_every(3)
+|> Enum.map(fn group ->
+  group
+  |> Day03.common_chars()
+  |> Day03.char_to_priority()
+end)
+|> Enum.sum()
+```

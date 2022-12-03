@@ -1,7 +1,22 @@
-file =
-  File.read!("../inputs/day_02.txt")
-  |> String.split("\n")
+# Day 2
 
+```elixir
+Mix.install([
+  {:kino, "~> 0.7.0"}
+])
+```
+
+## Input
+
+<!-- livebook:{"reevaluate_automatically":true} -->
+
+```elixir
+input = Kino.Input.textarea("Please paste your input file:")
+```
+
+## Helpers
+
+```elixir
 myMoveMap = %{
   "X" => 0,
   "Y" => 1,
@@ -27,17 +42,27 @@ defmodule Day02 do
   end
 end
 
-# Part 1
-file
+parsed_input =
+  input
+  |> Kino.Input.read()
+  |> String.splitter("\n")
+```
+
+## Part 1
+
+```elixir
+parsed_input
 |> Enum.map(fn line ->
   [opponentMove, myMove] = String.split(line)
   Day02.computeScore(opponentMoveMap[opponentMove], myMoveMap[myMove])
 end)
 |> Enum.sum()
-|> IO.inspect()
+```
 
-# Part 2
-file
+## Part 2
+
+```elixir
+parsed_input
 |> Enum.map(fn line ->
   [opponentMove, gameResult] = String.split(line)
 
@@ -51,4 +76,4 @@ file
   Day02.computeScore(opponentMoveMap[opponentMove], myMove)
 end)
 |> Enum.sum()
-|> IO.inspect()
+```
