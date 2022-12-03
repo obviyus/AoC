@@ -1,7 +1,4 @@
-use std::{
-    collections::{BinaryHeap, HashMap},
-    fs,
-};
+use std::{collections::HashMap, fs};
 
 lazy_static! {
     static ref MY_MOVE_MAP: HashMap<&'static str, u8> =
