@@ -1,0 +1,53 @@
+# Day 4
+
+```elixir
+Mix.install([
+  {:kino, "~> 0.7.0"}
+])
+```
+
+## Input
+
+<!-- livebook:{"reevaluate_automatically":true} -->
+
+```elixir
+input = Kino.Input.textarea("Please paste your input file:")
+```
+
+## Helpers
+
+## Part 1
+
+```elixir
+input
+|> Kino.Input.read()
+|> String.splitter("\n")
+|> Enum.filter(fn line ->
+  [first, second] = String.split(line, ",")
+
+  [e1_start, e1_finish] = String.split(first, "-") |> Enum.map(&String.to_integer/1)
+  [e2_start, e2_finish] = String.split(second, "-") |> Enum.map(&String.to_integer/1)
+
+  (e1_start >= e2_start && e1_finish <= e2_finish) ||
+    (e2_start >= e1_start && e2_finish <= e1_finish)
+end)
+|> Enum.count()
+```
+
+## Part 2
+
+```elixir
+input
+|> Kino.Input.read()
+|> String.splitter("\n")
+|> Enum.filter(fn line ->
+  [first, second] = String.split(line, ",")
+
+  [e1_start, e1_finish] = String.split(first, "-") |> Enum.map(&String.to_integer/1)
+  [e2_start, e2_finish] = String.split(second, "-") |> Enum.map(&String.to_integer/1)
+
+  (e1_start <= e2_start && e1_finish >= e2_start) ||
+    (e2_start <= e1_start && e2_finish >= e1_start)
+end)
+|> Enum.count()
+```
