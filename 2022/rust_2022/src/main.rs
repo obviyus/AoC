@@ -1,6 +1,7 @@
 mod day_01;
 mod day_02;
 mod day_03;
+mod day_04;
 
 #[macro_use]
 extern crate lazy_static;
@@ -13,4 +14,7 @@ fn main() {
 
     println!("{}", format!("Day 3 Part 1: {}", day_03::part_1()));
     println!("{}", format!("Day 3 Part 2: {}", day_03::part_2()));
+
+    println!("{}", format!("Day 4 Part 1: {}", day_04::part_1()));
+    println!("{}", format!("Day 4 Part 2: {}", day_04::part_2()));
 }
