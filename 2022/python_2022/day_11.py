@@ -5,6 +5,8 @@ monkeys = (
     {}
 )  # { monkey_index: { starting_items: [int], operation: { fx: int, value: int }, test: int, if_true: int, if_false: int } }
 
+gcd = 1
+
 lines = text.splitlines()
 for line in lines:
     line = line.strip()
@@ -23,17 +25,15 @@ for line in lines:
         }
     elif line.startswith("Test"):
         monkeys[monkey_index]["test"] = int(line.split(": ")[1].split(" ")[2])
+
+        # Maintain a GCD to keep worry levels in check
+        gcd *= monkeys[monkey_index]["test"]
     elif line.startswith("If true"):
         monkeys[monkey_index]["if_true"] = int(line.split(": ")[1].split(" ")[3])
     elif line.startswith("If false"):
         monkeys[monkey_index]["if_false"] = int(line.split(": ")[1].split(" ")[3])
 
 inspect_count = [0] * len(monkeys)
-
-# Keep worry levels in check otherwise too slow
-gcd = 1
-for x in sorted(monkeys.keys()):
-    gcd *= monkeys[x]["test"]
 
 for _ in range(10000):
     for monkey_index in range(len(monkeys)):
