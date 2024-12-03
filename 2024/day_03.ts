@@ -1,50 +1,47 @@
 const file = Bun.file("inputs/day_03.txt");
 const input = await file.text();
 
+type Instruction = {
+	pos: number | undefined;
+	type: "do" | "don't";
+};
+
+const PATTERNS = {
+	multiply: /mul\((\d+),(\d+)\)/g,
+	do: /do\(\)/g,
+	dont: /don't\(\)/g,
+} as const;
+
 function partOne(input: string): number {
-	const re = /mul\((\d+),(\d+)\)/g;
-	const matches = input.match(re);
-
-	if (!matches) return 0;
-
-	let result = 0;
-	for (const match of matches) {
-		const [a, b] = (match.match(/\d+/g) ?? []).map(Number);
-		result += a * b;
-	}
-
-	return result;
+	return Array.from(input.matchAll(PATTERNS.multiply)).reduce((sum, match) => {
+		const [a, b] = [match[1], match[2]].map(Number);
+		return sum + a * b;
+	}, 0);
 }
 
 function partTwo(input: string): number {
-	const reMul = /mul\((\d+),(\d+)\)/g;
-	const reDoInst = /do\(\)/g;
-	const reDontInst = /don't\(\)/g;
 	let result = 0;
 	let canMultiply = true;
-
 	let lastIndex = 0;
-	let mulMatch: RegExpExecArray | null;
 
-	while (true) {
-		mulMatch = reMul.exec(input);
-		if (mulMatch === null) break;
-
-		// Check for any do()/don't() between last position and current mul
+	for (const mulMatch of input.matchAll(PATTERNS.multiply)) {
 		const beforeMul = input.slice(lastIndex, mulMatch.index);
-		const doInsts = [...beforeMul.matchAll(reDoInst)];
-		const dontInsts = [...beforeMul.matchAll(reDontInst)];
 
-		// Combine and sort all by their position
-		const allInsts = [
-			...doInsts.map((m) => ({ pos: m.index, type: "do" })),
-			...dontInsts.map((m) => ({ pos: m.index, type: "don't" })),
+		// Get instructions between multiplications
+		const instructions: Instruction[] = [
+			...Array.from(beforeMul.matchAll(PATTERNS.do)).map((m) => ({
+				pos: m.index,
+				type: "do" as const,
+			})),
+			...Array.from(beforeMul.matchAll(PATTERNS.dont)).map((m) => ({
+				pos: m.index,
+				type: "don't" as const,
+			})),
 		].sort((a, b) => (a.pos ?? 0) - (b.pos ?? 0));
 
-		if (allInsts.length > 0) {
-			// Update state on last instruction
-			const lastInst = allInsts[allInsts.length - 1];
-			canMultiply = lastInst.type === "do";
+		// Update state by last instruction
+		if (instructions.length > 0) {
+			canMultiply = instructions[instructions.length - 1].type === "do";
 		}
 
 		if (canMultiply) {
@@ -52,7 +49,9 @@ function partTwo(input: string): number {
 			result += a * b;
 		}
 
-		lastIndex = mulMatch.index + mulMatch[0].length;
+		if (mulMatch.index !== undefined) {
+			lastIndex = mulMatch.index + mulMatch[0].length;
+		}
 	}
 
 	return result;
