@@ -30,31 +30,6 @@ function partOne(input: string): number {
 	}, 0);
 }
 
-function sortUpdateByRules(update: number[], rules: number[][]): number[] {
-	const sortedUpdate = [...update];
-
-	// Sort using rules
-	let swapped: boolean;
-	do {
-		swapped = false;
-		for (let i = 0; i < sortedUpdate.length - 1; i++) {
-			const current = sortedUpdate[i];
-			const next = sortedUpdate[i + 1];
-
-			// Swap if rule is violated
-			if (
-				rules.some(([before, after]) => current === after && next === before)
-			) {
-				sortedUpdate[i] = next;
-				sortedUpdate[i + 1] = current;
-				swapped = true;
-			}
-		}
-	} while (swapped);
-
-	return sortedUpdate;
-}
-
 function partTwo(input: string): number {
 	const { rules, updates } = parseInput(input);
 
@@ -62,8 +37,20 @@ function partTwo(input: string): number {
 		(update) => !isValidUpdate(update, rules),
 	);
 
+	function sortUpdateByRules(a: number, b: number) {
+		// 'b' should come before 'a' => 1 (swap)
+		if (rules.some(([before, after]) => a === after && b === before)) {
+			return 1;
+		}
+		// 'a' should come before 'b' => -1 (no swap)
+		if (rules.some(([before, after]) => a === before && b === after)) {
+			return -1;
+		}
+		return 0;
+	}
+
 	return invalidUpdates.reduce((sum, update) => {
-		const sortedUpdate = sortUpdateByRules(update, rules);
+		const sortedUpdate = update.sort(sortUpdateByRules);
 		const middleIndex = Math.floor(sortedUpdate.length / 2);
 		return sum + sortedUpdate[middleIndex];
 	}, 0);
